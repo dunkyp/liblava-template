@@ -10,11 +10,15 @@ using namespace lava;
 
 int main(int argc, char* argv[]) {
 
-    frame frame({ argc, argv });
+    frame_config config;
+    config.app = "template";
+    config.cmd_line = { argc, argv };
+
+    frame frame(config);
     if (!frame.ready())
         return error::not_ready;
 
-    window window("template");
+    window window(config.app);
     if (!window.create())
         return error::create_failed;
 
