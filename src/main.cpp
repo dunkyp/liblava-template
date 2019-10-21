@@ -41,19 +41,17 @@ int main(int argc, char* argv[]) {
 
     auto render_pass = forward_shading.get_render_pass();
 
-    gui gui;
-    gui.setup(window.get());
-    if (!gui.initialize(graphics_pipeline::make(device), frame_count))
+    gui gui(window.get());
+    if (!gui.create(device, frame_count))
         return error::create_failed;
 
     {
         auto gui_pipeline = gui.get_pipeline();
 
-        gui_pipeline->set_render_pass(render_pass->get());
-        if (!gui_pipeline->create())
+        if (!gui_pipeline->create(render_pass->get()))
             return error::create_failed;
 
-        render_pass->get_subpass()->add(gui_pipeline);
+        render_pass->add(gui_pipeline);
     }
 
     auto fonts = texture::make();
@@ -64,14 +62,16 @@ int main(int argc, char* argv[]) {
     staging.add(fonts);
 
     block block;
-    if (!block.create(device, frame_count, device->get_graphics_queue().family))
+    if (!block.create(device, frame_count, device->graphics_queue().family))
         return false;
 
     block.add_command([&](VkCommandBuffer cmd_buf) {
 
-        staging.stage(cmd_buf, block.get_current_frame());
+        auto current_frame = block.get_current_frame();
 
-        render_pass->process(cmd_buf, block.get_current_frame());
+        staging.stage(cmd_buf, current_frame);
+
+        render_pass->process(cmd_buf, current_frame);
     });
 
     gui.on_draw = [&]() {
@@ -128,8 +128,8 @@ int main(int argc, char* argv[]) {
     frame.add_run_end([&]() {
 
         input.remove(&gui);
-        gui.shutdown();
 
+        gui.destroy();
         fonts->destroy();
 
         block.destroy();
