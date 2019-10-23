@@ -1,7 +1,7 @@
 # liblava-template
 Project template for <a href="https://git.io/liblava">liblava</a>
 
-![version](https://img.shields.io/badge/version-0.4.3-blue) [![LoC](https://tokei.rs/b1/github/liblava/liblava-template?category=code)](https://github.com/liblava/liblava-template) [![Build Status](https://travis-ci.com/liblava/liblava-template.svg?branch=master)](https://travis-ci.com/liblava/liblava-template) [![Build status](https://ci.appveyor.com/api/projects/status/mwohjobmltg8v90v?svg=true)](https://ci.appveyor.com/project/TheLavaBlock/liblava-template) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow)](https://twitter.com/thelavablock)
+![version](https://img.shields.io/badge/version-0.4.3-blue) [![LoC](https://tokei.rs/b1/github/liblava/liblava-template?category=code)](https://github.com/liblava/liblava-template) [![Build Status](https://travis-ci.com/liblava/liblava-template.svg?branch=master)](https://travis-ci.com/liblava/liblava-template) [![Build status](https://ci.appveyor.com/api/projects/status/mwohjobmltg8v90v?svg=true)](https://ci.appveyor.com/project/TheLavaBlock/liblava-template) [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE) [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow)](https://twitter.com/thelavablock)
 
 1. Clone
 2. Rename

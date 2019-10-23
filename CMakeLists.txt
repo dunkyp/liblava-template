@@ -8,7 +8,7 @@ project(template VERSION 0.4.3 LANGUAGES C CXX)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/liblava ${CMAKE_CURRENT_BINARY_DIR}/liblava)
 
-message(">> template")
+message("> template")
 
 add_executable(template
         ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
