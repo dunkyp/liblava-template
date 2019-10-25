@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
 
     block block;
     if (!block.create(device, frame_count, device->graphics_queue().family))
-        return false;
+        return error::create_failed;
 
     block.add_command([&](VkCommandBuffer cmd_buf) {
 
